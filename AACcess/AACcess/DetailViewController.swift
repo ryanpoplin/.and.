@@ -58,8 +58,11 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         // the 'frame' arguments
         textView = UITextView(frame: CGRect(x: 20, y: 60, width: 660, height: 240))
         
+        // ...
+        textView.font = UIFont.systemFontOfSize(45)
+        
         // red for testing
-        textView.backgroundColor = UIColor.whiteColor()
+        textView.backgroundColor = UIColor.redColor()
         
         // add textView to the 'ViewController' view as a subview
         self.view.addSubview(textView)
@@ -97,6 +100,9 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         clearTextButton.addTarget(self, action: "clearTextButtonIsPressed:", forControlEvents: .TouchDown)
         
         // ...
+        clearTextButton.titleLabel!.font = UIFont.systemFontOfSize(20)
+        
+        // ...
         view.addSubview(clearTextButton)
         
         /* speakAndPauseButton */
@@ -123,6 +129,9 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         speakAndPauseButton.addTarget(self, action: "speakAndPauseButtonIsPressed:", forControlEvents: .TouchDown)
         
         // ...
+        speakAndPauseButton.titleLabel!.font = UIFont.systemFontOfSize(20)
+        
+        // ...
         view.addSubview(speakAndPauseButton)
         
         // ...
@@ -147,21 +156,127 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
     }
     
     // ...
-
+    func textViewDidChange(textView: UITextView) {
+        
+        // ...
+        var textString: NSString = textView.text
+        
+        // ...
+        var charSet: NSCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
+        
+        // ...
+        var trimmedString: NSString = textString.stringByTrimmingCharactersInSet(charSet)
+        
+        // ...
+        textViewData = String(trimmedString)
+        
+        // ...
+        if trimmedString.length == 0 {
+            
+            // ...
+            speakAndPauseButton.enabled = false
+            
+        } else {
+            
+            // ...
+            speakAndPauseButton.enabled = true
+            
+        }
+        
+    }
+    
     // ...
     func clearTextButtonIsPressed(sender: UIButton) {
      
         // ...
-        println("Clear...")
-    
+        textView?.text = nil
+        
+        // ...
+        speakAndPauseButton.enabled = false
+        
+        // ...
+        self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+        
+        // ...
+        textViewData = ""
+        
+        // ...
+        self.automaticallyAdjustsScrollViewInsets = false
+        
     }
     
     // ...
     func speakAndPauseButtonIsPressed(sender: UIButton) {
      
         // ...
-        println("Speak and Pause...")
+        var textString:NSString = textView.text
+        
+        // ...
+        var charSet:NSCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
+        
+        // ...
+        var trimmedString:NSString = textString.stringByTrimmingCharactersInSet(charSet)
+        
+        // ...
+        if trimmedString.length == 0 {
+            
+            // ...
+            
+        } else {
+            
+            // ...
+            if speechPaused == false {
+                
+                // ...
+                speakAndPauseButton.setTitle("Pause", forState: .Normal)
+                // ...
+                self.synthesizer.continueSpeaking()
+                // ...
+                speechPaused = true
+                
+            } else {
+                
+                // ...
+                speakAndPauseButton.setTitle("Speak", forState: .Normal)
+                // ...
+                speechPaused = false
+                // ...
+                self.synthesizer.pauseSpeakingAtBoundary(.Immediate)
+                
+            }
+            
+            // ...
+            if self.synthesizer.speaking == false {
+                
+                // ...
+                var text:String = textView!.text
+                // ...
+                var utterance:AVSpeechUtterance = AVSpeechUtterance(string:text)
+                // ...
+                utterance.rate = 0.02
+                // ...
+                self.synthesizer.speakUtterance(utterance)
+                
+            }
+            
+        }
+        
+    }
     
+    // ...
+    func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, didFinishSpeechUtterance utterance: AVSpeechUtterance!) {
+        
+        // ...
+        speakAndPauseButton.setTitle("Speak", forState: .Normal)
+        
+        // ...
+        speechPaused = false
+        
+        // ...
+        var sentenceText: String = textView.text
+        
+        // analyzeText(sentenceText)
+        
     }
     
     // ...
