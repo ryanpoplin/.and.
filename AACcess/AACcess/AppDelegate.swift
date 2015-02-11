@@ -13,10 +13,18 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window!.backgroundColor = UIColor.whiteColor()
+        var splitViewController =  UISplitViewController()
+        var rootViewController = ViewController()
+        var detailViewController = DetailViewController()
+        var rootNavigationController = UINavigationController(rootViewController:rootViewController)
+        var detailNavigationController = UINavigationController(rootViewController:detailViewController)
+        splitViewController.viewControllers = [rootNavigationController,detailNavigationController]
+        self.window!.rootViewController = splitViewController
+        self.window!.makeKeyAndVisible()
         return true
     }
 
@@ -108,4 +116,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

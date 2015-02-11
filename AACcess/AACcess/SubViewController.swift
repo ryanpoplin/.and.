@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SubViewController.swift
 //  AACcess
 //
 //  Created by Byrdann Fox on 2/11/15.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SubViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
