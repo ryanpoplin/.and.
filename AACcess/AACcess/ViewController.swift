@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addNewCategory")
         self.navigationItem.rightBarButtonItem = addButton
         
-        println(managedObjectContext!)
+        // println(managedObjectContext!)
         
         view.backgroundColor = UIColor.whiteColor()
         

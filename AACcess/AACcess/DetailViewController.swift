@@ -163,8 +163,6 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
     // ...
     func textViewDidChange(textView: UITextView) {
         
-        println("...")
-        
         // testness = String(last(textView.text)!)
         
         // ...
@@ -179,7 +177,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         // ...
         textViewData = String(trimmedString)
         
-        println(textViewData)
+        // println(textViewData)
         
         // ...
         if trimmedString.length == 0 {
@@ -209,7 +207,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         self.synthesizer.stopSpeakingAtBoundary(.Immediate)
         
         // ...
-        textViewData = ""
+        textViewData = nil
         
         textView.becomeFirstResponder()
         

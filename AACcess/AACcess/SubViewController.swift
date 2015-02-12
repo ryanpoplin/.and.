@@ -36,9 +36,7 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        println(textViewData)
-        
+                
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addNewCategoryItem")
@@ -161,13 +159,20 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        
-        
         let categoryItem = categoryItemsItems[indexPath.row]
         
-        if textViewData == nil {
+        if textViewData == nil || textViewRef.text! == "" {
             
-            textViewData = String(categoryItem.title)
+            // ...
+            var textString: NSString = String(categoryItem.title)
+            
+            // ...
+            var charSet: NSCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
+            
+            // ...
+            var trimmedString: NSString = textString.stringByTrimmingCharactersInSet(charSet)
+            
+            textViewData = String(trimmedString)
             
             textViewRef.text = textViewData
             
@@ -175,7 +180,16 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
             
         } else {
         
-            textViewData = textViewData + " " + String(categoryItem.title)
+            // ...
+            var textString: NSString = String(categoryItem.title)
+            
+            // ...
+            var charSet: NSCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
+            
+            // ...
+            var trimmedString: NSString = textString.stringByTrimmingCharactersInSet(charSet)
+            
+            textViewData = textViewData + " " + String(trimmedString)
         
             textViewRef.text = textViewData
             
