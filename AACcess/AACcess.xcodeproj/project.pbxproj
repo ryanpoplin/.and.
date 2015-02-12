@@ -15,6 +15,8 @@
 		5ADA3D651A8BAF3B00CF486A /* AACcessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADA3D641A8BAF3B00CF486A /* AACcessTests.swift */; };
 		5ADA3D6F1A8BAFE900CF486A /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADA3D6E1A8BAFE900CF486A /* SubViewController.swift */; };
 		5ADA3D711A8BB02900CF486A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADA3D701A8BB02900CF486A /* DetailViewController.swift */; };
+		5ADA3D731A8C4BB800CF486A /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADA3D721A8C4BB800CF486A /* CategoryItem.swift */; };
+		5ADA3D751A8C4BB900CF486A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADA3D741A8C4BB900CF486A /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		5ADA3D641A8BAF3B00CF486A /* AACcessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACcessTests.swift; sourceTree = "<group>"; };
 		5ADA3D6E1A8BAFE900CF486A /* SubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
 		5ADA3D701A8BB02900CF486A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5ADA3D721A8C4BB800CF486A /* CategoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		5ADA3D741A8C4BB900CF486A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 				5ADA3D551A8BAF3A00CF486A /* Images.xcassets */,
 				5ADA3D571A8BAF3A00CF486A /* LaunchScreen.xib */,
 				5ADA3D4D1A8BAF3A00CF486A /* AACcess.xcdatamodeld */,
+				5ADA3D741A8C4BB900CF486A /* Category.swift */,
+				5ADA3D721A8C4BB800CF486A /* CategoryItem.swift */,
 				5ADA3D491A8BAF3A00CF486A /* Supporting Files */,
 			);
 			path = AACcess;
@@ -221,7 +227,9 @@
 				5ADA3D4C1A8BAF3A00CF486A /* AppDelegate.swift in Sources */,
 				5ADA3D711A8BB02900CF486A /* DetailViewController.swift in Sources */,
 				5ADA3D4F1A8BAF3A00CF486A /* AACcess.xcdatamodeld in Sources */,
+				5ADA3D731A8C4BB800CF486A /* CategoryItem.swift in Sources */,
 				5ADA3D6F1A8BAFE900CF486A /* SubViewController.swift in Sources */,
+				5ADA3D751A8C4BB900CF486A /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +415,7 @@
 				5ADA3D6A1A8BAF3B00CF486A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5ADA3D6B1A8BAF3B00CF486A /* Build configuration list for PBXNativeTarget "AACcessTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +424,7 @@
 				5ADA3D6D1A8BAF3B00CF486A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

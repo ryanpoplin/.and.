@@ -14,10 +14,8 @@ import QuartzCore
 import JavaScriptCore
 
 // ...
-public var textViewData: String! = ""
-
-// ...
-public var testness: String!
+public var textViewData: String!
+public var textViewRef: UITextView!
 
 // ...
 class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesizerDelegate {
@@ -59,7 +57,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         /* textView */
         
         // the 'frame' arguments
-        textView = UITextView(frame: CGRect(x: 20, y: 60, width: 660, height: 240))
+        textView = UITextView(frame: CGRect(x: 20, y: 80, width: 660, height: 220))
         
         // ...
         textView.font = UIFont.systemFontOfSize(45)
@@ -78,6 +76,9 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         
         // ...
         textView.becomeFirstResponder()
+        
+        // ...
+        textViewRef = textView
         
         /* clearTextButton */
         
@@ -161,15 +162,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
     // ...
     func textViewDidChange(textView: UITextView) {
         
-        testness = String(last(textView.text)!)
-        
-        if let test = testness {
-                        
-            testness = test
-            
-        }
-        
-        println(testness)
+        // testness = String(last(textView.text)!)
         
         // ...
         var textString: NSString = textView.text
@@ -182,6 +175,8 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         
         // ...
         textViewData = String(trimmedString)
+        
+        println(textViewData)
         
         // ...
         if trimmedString.length == 0 {
@@ -212,6 +207,8 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         
         // ...
         textViewData = ""
+        
+        textView.becomeFirstResponder()
         
         // ...
         self.automaticallyAdjustsScrollViewInsets = false
@@ -276,63 +273,65 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         
     }
     
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    /* CONFIGURE THE PROPER ALGORITHM FOR THIS FEATURE... */
     
-        // ...
-        var textString:NSString = textView.text
-        
-        // ...
-        var charSet:NSCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
-        
-        // ...
-        var trimmedString:NSString = textString.stringByTrimmingCharactersInSet(charSet)
-        
-        // ...
-        if text == " " {
-            
-            // ...
-            if speechPaused == false {
-                
-                // ...
-                speakAndPauseButton.setTitle("Pause", forState: .Normal)
-                // ...
-                self.synthesizer.continueSpeaking()
-                // ...
-                speechPaused = true
-                
-            } else {
-                
-                // ...
-                speakAndPauseButton.setTitle("Speak", forState: .Normal)
-                // ...
-                speechPaused = false
-                // ...
-                self.synthesizer.pauseSpeakingAtBoundary(.Immediate)
-                
-            }
-            
-            // ...
-            if self.synthesizer.speaking == false {
-                
-                var testaa = textView.text
-                
-                // ...
-                var text:String = textView.text
-                // ...
-                var utterance:AVSpeechUtterance = AVSpeechUtterance(string:text)
-                // ...
-                utterance.rate = 0.02
-                // ...
-                self.synthesizer.speakUtterance(utterance)
-                
-            }
-
-            
-        }
-        
-        return true
-        
-    }
+//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//    
+//        // ...
+//        var textString:NSString = textView.text
+//        
+//        // ...
+//        var charSet:NSCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
+//        
+//        // ...
+//        var trimmedString:NSString = textString.stringByTrimmingCharactersInSet(charSet)
+//        
+//        // ...
+//        if text == " " {
+//            
+//            // ...
+//            if speechPaused == false {
+//                
+//                // ...
+//                speakAndPauseButton.setTitle("Pause", forState: .Normal)
+//                // ...
+//                self.synthesizer.continueSpeaking()
+//                // ...
+//                speechPaused = true
+//                
+//            } else {
+//                
+//                // ...
+//                speakAndPauseButton.setTitle("Speak", forState: .Normal)
+//                // ...
+//                speechPaused = false
+//                // ...
+//                self.synthesizer.pauseSpeakingAtBoundary(.Immediate)
+//                
+//            }
+//            
+//            // ...
+//            if self.synthesizer.speaking == false {
+//                
+//                var testaa = textView.text
+//                
+//                // ...
+//                var text:String = textView.text
+//                // ...
+//                var utterance:AVSpeechUtterance = AVSpeechUtterance(string:text)
+//                // ...
+//                utterance.rate = 0.02
+//                // ...
+//                self.synthesizer.speakUtterance(utterance)
+//                
+//            }
+//
+//            
+//        }
+//        
+//        return true
+//        
+//    }
     
     // ...
     func speechSynthesizer(synthesizer: AVSpeechSynthesizer!, didFinishSpeechUtterance utterance: AVSpeechUtterance!) {
