@@ -159,19 +159,19 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         let categoryItem = categoryItemsItems[indexPath.row]
         
-        // textViewData + String(categoryItem.title)
-        
-        if textViewData == "" {
+        if textViewData == nil {
             
             textViewData = String(categoryItem.title)
+            
+            textViewRef.text = textViewData
             
         } else {
         
             textViewData = textViewData + " " + String(categoryItem.title)
+        
+            textViewRef.text = textViewData
             
         }
-        
-        textViewRef.text = textViewData
         
     }
     

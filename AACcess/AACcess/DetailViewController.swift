@@ -11,6 +11,7 @@ import UIKit
 import CoreData
 import AVFoundation
 import QuartzCore
+// ADD JS CORE CODE, TEXT-ANALYZER.JS CODE, AND KEEN CLIENT CODE, AND CONFIGURE A COREDATA ENTITY TO STORE AN ARRAY OF DICTIONARY ITEMS...
 import JavaScriptCore
 
 // ...
