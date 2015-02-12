@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 ExcepApps, Inc. All rights reserved.
 //
 
+// FIX THE LOADING FORMAT OF THE TEXTVIEW FROM THE CATEGORY ITEMS, ETC...
+
 import UIKit
 import CoreData
 
@@ -34,6 +36,8 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        println(textViewData)
         
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
@@ -157,6 +161,8 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        
+        
         let categoryItem = categoryItemsItems[indexPath.row]
         
         if textViewData == nil {
@@ -165,11 +171,15 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
             
             textViewRef.text = textViewData
             
+            speakAndPauseButton.enabled = true
+            
         } else {
         
             textViewData = textViewData + " " + String(categoryItem.title)
         
             textViewRef.text = textViewData
+            
+            speakAndPauseButton.enabled = true
             
         }
         

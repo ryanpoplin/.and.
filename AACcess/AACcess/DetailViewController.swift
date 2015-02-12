@@ -18,6 +18,9 @@ import JavaScriptCore
 public var textViewData: String!
 public var textViewRef: UITextView!
 
+// create a variable to hold a reference to a UIButton
+public var speakAndPauseButton: UIButton!
+
 // ...
 class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesizerDelegate {
     
@@ -37,9 +40,6 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
     
     // create a variable to hold a reference to a UIButton
     var clearTextButton: UIButton!
-    
-    // create a variable to hold a reference to a UIButton
-    var speakAndPauseButton: UIButton!
     
     // ...
     override func viewDidLoad() {
@@ -162,6 +162,8 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
     
     // ...
     func textViewDidChange(textView: UITextView) {
+        
+        println("...")
         
         // testness = String(last(textView.text)!)
         
