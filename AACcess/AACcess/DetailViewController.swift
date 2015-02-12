@@ -62,7 +62,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         textView.font = UIFont.systemFontOfSize(45)
         
         // red for testing
-        textView.backgroundColor = UIColor.redColor()
+        textView.backgroundColor = UIColor.whiteColor()
         
         // add textView to the 'ViewController' view as a subview
         self.view.addSubview(textView)
@@ -155,8 +155,15 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         
     }
     
+    internal var testaa: String?
+    internal var testness: String?
+    
     // ...
     func textViewDidChange(textView: UITextView) {
+        
+        var testness = String(last(textView.text)!)
+        
+        
         
         // ...
         var textString: NSString = textView.text
@@ -249,7 +256,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
             if self.synthesizer.speaking == false {
                 
                 // ...
-                var text:String = textView!.text
+                var text:String = textView.text
                 // ...
                 var utterance:AVSpeechUtterance = AVSpeechUtterance(string:text)
                 // ...
@@ -260,6 +267,64 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
             }
             
         }
+        
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    
+        // ...
+        var textString:NSString = textView.text
+        
+        // ...
+        var charSet:NSCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
+        
+        // ...
+        var trimmedString:NSString = textString.stringByTrimmingCharactersInSet(charSet)
+        
+        // ...
+        if text == " " {
+            
+            // ...
+            if speechPaused == false {
+                
+                // ...
+                speakAndPauseButton.setTitle("Pause", forState: .Normal)
+                // ...
+                self.synthesizer.continueSpeaking()
+                // ...
+                speechPaused = true
+                
+            } else {
+                
+                // ...
+                speakAndPauseButton.setTitle("Speak", forState: .Normal)
+                // ...
+                speechPaused = false
+                // ...
+                self.synthesizer.pauseSpeakingAtBoundary(.Immediate)
+                
+            }
+            
+            // ...
+            if self.synthesizer.speaking == false {
+                
+                var testaa = textView.text
+                
+                // ...
+                var text:String = textView.text
+                // ...
+                var utterance:AVSpeechUtterance = AVSpeechUtterance(string:text)
+                // ...
+                utterance.rate = 0.02
+                // ...
+                self.synthesizer.speakUtterance(utterance)
+                
+            }
+
+            
+        }
+        
+        return true
         
     }
     
