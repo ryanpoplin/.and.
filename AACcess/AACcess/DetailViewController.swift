@@ -17,6 +17,9 @@ import JavaScriptCore
 public var textViewData: String! = ""
 
 // ...
+public var testness: String!
+
+// ...
 class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthesizerDelegate {
     
     // ...
@@ -155,15 +158,18 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         
     }
     
-    internal var testaa: String?
-    internal var testness: String?
-    
     // ...
     func textViewDidChange(textView: UITextView) {
         
-        var testness = String(last(textView.text)!)
+        testness = String(last(textView.text)!)
         
+        if let test = testness {
+                        
+            testness = test
+            
+        }
         
+        println(testness)
         
         // ...
         var textString: NSString = textView.text
