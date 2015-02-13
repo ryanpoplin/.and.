@@ -17,6 +17,9 @@
 		5ADA3D711A8BB02900CF486A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADA3D701A8BB02900CF486A /* DetailViewController.swift */; };
 		5ADA3D731A8C4BB800CF486A /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADA3D721A8C4BB800CF486A /* CategoryItem.swift */; };
 		5ADA3D751A8C4BB900CF486A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADA3D741A8C4BB900CF486A /* Category.swift */; };
+		5ADA3D7B1A8D333E00CF486A /* libKeenClient-Aggregate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADA3D7A1A8D333E00CF486A /* libKeenClient-Aggregate.a */; };
+		5ADA3D811A8D352900CF486A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ADA3D801A8D352900CF486A /* CoreLocation.framework */; };
+		5ADA3D831A8D35AD00CF486A /* text-analyzer.js in Resources */ = {isa = PBXBuildFile; fileRef = 5ADA3D821A8D35AD00CF486A /* text-analyzer.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,13 @@
 		5ADA3D701A8BB02900CF486A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5ADA3D721A8C4BB800CF486A /* CategoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		5ADA3D741A8C4BB900CF486A /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5ADA3D771A8D333E00CF486A /* KeenClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeenClient.h; sourceTree = "<group>"; };
+		5ADA3D781A8D333E00CF486A /* KeenProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeenProperties.h; sourceTree = "<group>"; };
+		5ADA3D791A8D333E00CF486A /* KIOEventStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIOEventStore.h; sourceTree = "<group>"; };
+		5ADA3D7A1A8D333E00CF486A /* libKeenClient-Aggregate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libKeenClient-Aggregate.a"; sourceTree = "<group>"; };
+		5ADA3D7C1A8D33B600CF486A /* AACcess-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AACcess-Bridging-Header.h"; sourceTree = "<group>"; };
+		5ADA3D801A8D352900CF486A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5ADA3D821A8D35AD00CF486A /* text-analyzer.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "text-analyzer.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADA3D811A8D352900CF486A /* CoreLocation.framework in Frameworks */,
+				5ADA3D7B1A8D333E00CF486A /* libKeenClient-Aggregate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +79,7 @@
 		5ADA3D3D1A8BAF3A00CF486A = {
 			isa = PBXGroup;
 			children = (
+				5ADA3D801A8D352900CF486A /* CoreLocation.framework */,
 				5ADA3D481A8BAF3A00CF486A /* AACcess */,
 				5ADA3D611A8BAF3B00CF486A /* AACcessTests */,
 				5ADA3D471A8BAF3A00CF486A /* Products */,
@@ -85,6 +98,8 @@
 		5ADA3D481A8BAF3A00CF486A /* AACcess */ = {
 			isa = PBXGroup;
 			children = (
+				5ADA3D761A8D333E00CF486A /* KeenClient-4 */,
+				5ADA3D7C1A8D33B600CF486A /* AACcess-Bridging-Header.h */,
 				5ADA3D4B1A8BAF3A00CF486A /* AppDelegate.swift */,
 				5ADA3D501A8BAF3A00CF486A /* ViewController.swift */,
 				5ADA3D6E1A8BAFE900CF486A /* SubViewController.swift */,
@@ -103,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				5ADA3D4A1A8BAF3A00CF486A /* Info.plist */,
+				5ADA3D821A8D35AD00CF486A /* text-analyzer.js */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -122,6 +138,18 @@
 				5ADA3D631A8BAF3B00CF486A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5ADA3D761A8D333E00CF486A /* KeenClient-4 */ = {
+			isa = PBXGroup;
+			children = (
+				5ADA3D771A8D333E00CF486A /* KeenClient.h */,
+				5ADA3D781A8D333E00CF486A /* KeenProperties.h */,
+				5ADA3D791A8D333E00CF486A /* KIOEventStore.h */,
+				5ADA3D7A1A8D333E00CF486A /* libKeenClient-Aggregate.a */,
+			);
+			name = "KeenClient-4";
+			path = "../../../Downloads/KeenClient-4";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ADA3D591A8BAF3A00CF486A /* LaunchScreen.xib in Resources */,
+				5ADA3D831A8D35AD00CF486A /* text-analyzer.js in Resources */,
 				5ADA3D561A8BAF3A00CF486A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,9 +375,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AACcess/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/byrdannfox/Downloads/KeenClient-4",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AACcess/AACcess-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -356,9 +392,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AACcess/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/byrdannfox/Downloads/KeenClient-4",
+				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AACcess/AACcess-Bridging-Header.h";
 			};
 			name = Release;
 		};

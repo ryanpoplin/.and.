@@ -89,14 +89,16 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func addNewCategoryItem() {
         
-        self.saveNewCategoryItem(textViewData, category: categoryTitleProperty)
+        if textViewData != nil {
+
+            self.saveNewCategoryItem(textViewData, category: categoryTitleProperty)
         
+        }
+            
     }
     
     func saveNewCategoryItem(title: String, category: String) {
         
-        if title != "" {
-            
             var newCategoryItem = CategoryItem.createInManagedObjectContext(self.managedObjectContext!, title: title, category: category)
             
             self.fetchCategory()
@@ -110,9 +112,7 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 save()
                 
             }
-            
-        }
-        
+                    
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -163,13 +163,10 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         if textViewData == nil || textViewRef.text! == "" {
             
-            // ...
             var textString: NSString = String(categoryItem.title)
             
-            // ...
             var charSet: NSCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
             
-            // ...
             var trimmedString: NSString = textString.stringByTrimmingCharactersInSet(charSet)
             
             textViewData = String(trimmedString)
@@ -180,13 +177,10 @@ class SubViewController: UIViewController, UITableViewDataSource, UITableViewDel
             
         } else {
         
-            // ...
             var textString: NSString = String(categoryItem.title)
             
-            // ...
             var charSet: NSCharacterSet = NSCharacterSet.whitespaceAndNewlineCharacterSet()
             
-            // ...
             var trimmedString: NSString = textString.stringByTrimmingCharactersInSet(charSet)
             
             textViewData = textViewData + " " + String(trimmedString)

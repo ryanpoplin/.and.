@@ -86,14 +86,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func addNewCategory() {
         
-        self.saveNewCategory(textViewData)
+        if textViewData != nil {
+        
+            self.saveNewCategory(textViewData)
+            
+        }
         
     }
     
     func saveNewCategory(title: String) {
         
-        if title != "" {
-            
             var newCategory = Category.createInManagedObjectContext(self.managedObjectContext!, title: title)
             
             self.fetchCategory()
@@ -107,8 +109,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 save()
                 
             }
-            
-        }
         
     }
     
