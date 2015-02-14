@@ -261,7 +261,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         
         var sentenceText: String = textView.text
         
-         analyzeText(sentenceText)
+        analyzeText(sentenceText)
         
     }
     
