@@ -301,8 +301,9 @@ class DetailViewController: UIViewController, UITextViewDelegate, AVSpeechSynthe
         ]
         
         println(dataDic)
-
-        // configure an efficent and required way to deal with the networking feature with keen, parse, etc...
+        
+        // save to coredata, and configure how to send a giant array of dictionaries to keen.io...
+        // var dataDicArray = [Dictionary<String, Int>]()
         
         let sentenceSpoken:NSString = "sentence_spoken"
         
